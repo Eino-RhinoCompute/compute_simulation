@@ -17,7 +17,7 @@ def compute_without_input(gh_script_name: str) -> json:
     return: rhino compute计算的结果,为json格式文件
     """
     file_directory = os.path.dirname(os.path.realpath(__file__))
-    GrasshopperScript_filepath = os.path.join(file_directory,'grasshopper', gh_script_name)
+    GrasshopperScript_filepath = os.path.join(file_directory, '../grasshopper', gh_script_name)
 
     if not os.path.exists(GrasshopperScript_filepath):
         GrasshopperScript_filepath = os.path.join(file_directory, gh_script_name)
@@ -34,7 +34,7 @@ def compute_with_input(gh_script_name: str,param_dict: dict[str,Any]) -> json:
     return: rhino compute计算的结果,为json格式文件
     """
     file_directory = os.path.dirname(os.path.realpath(__file__))
-    GrasshopperScript_filepath = os.path.join(file_directory, 'grasshopper', gh_script_name)
+    GrasshopperScript_filepath = os.path.join(file_directory, '../grasshopper', gh_script_name)
 
     if not os.path.exists(GrasshopperScript_filepath):
         GrasshopperScript_filepath = os.path.join(file_directory, gh_script_name)
@@ -71,17 +71,16 @@ def parse_data(compute_result: json):
 if __name__ == "__main__":
     # region 数据输入测试
     # 简单数值测试
-    # param_dict = {
-    #     "num1": 3,
-    #     "num2": 6
-    # }
-    # output = compute_with_input("数据读取.gh", param_dict)
-    # print(parse_data(output))
+    param_dict = {
+        "value": 1
+    }
+    output = compute_with_input("sunlight.gh", param_dict)
+    print(parse_data(output))
     # endregion
 
     # region 数据输出测试
-    output = compute_without_input("数据输出.gh")
-    print(output['values'])
+    # output = compute_without_input("数据输出.gh")
+    # print(output['values'])
     # endregion
 
     #region 数据交互测试

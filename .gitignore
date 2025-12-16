@@ -205,3 +205,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+test.3dm.rhl
+test.3dm
+test.3dmbak
