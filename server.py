@@ -22,8 +22,10 @@ class MassingToolInput(BaseModel):
     building_area: float = Field(..., alias="building_area")
     # 对应 Go: FloorCount int
     floor_count: int = Field(..., alias="floor_count")
-    # 对应 Go: PlotRatio float64
-    plot_ratio: Optional[float] = Field(None, alias="plot_ratio")
+    # 对应 Go: SizeX float64
+    size_x: Optional[float] = Field(None, alias="size_x")
+    # 对应 Go: SizeY float64
+    size_y: Optional[float] = Field(None, alias="size_y")
 
 
 class MassingToolOutput(BaseModel):
